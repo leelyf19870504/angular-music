@@ -17,6 +17,11 @@
 ```html
 <span ng-show="author="xiaxiaowen""></span>
 ```
+### ng-click
+    绑定点击后的js函数
+```html
+<button ng-click="sayHello()">点击</button>
+```
 #### ng-controller
     定义控制Angularjs应用
 #### {{表达式}}
@@ -47,7 +52,13 @@ app.controller('myCtrl', function($scope){$scope.myAppName = 'Angular Music'});
 </script>
 </body>
 ```
-#### 
+#### $rootScope(根scope) 
+    所有的应用都有一个 $rootScope，它可以作用于ng-app 指令包含的所有 HTML 元素中。
+    用 rootscope 定义的值，可以在各个 controller 中使用
+
+#### Angularjs过滤器
+过滤器可以使用一个管道字符（|）添加到表达式和指令中。
+
 # AngularMusic
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.2.
