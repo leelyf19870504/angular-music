@@ -1,37 +1,37 @@
 # angularJS学习
-### ng-app
+#### ng-app
     指令定义一个AngularJS应用程序
-### ng-model
+#### ng-model
     指令把元素（比如输入域的值）绑定到应用程序
-### ng-bind
+#### ng-bind
     指令把应用程序数据绑定到HTML视图
-### ng-repeat
+#### ng-repeat
     重复一个html元素，类似于for循环,用在数组上
 ```html
 <li ng-repeat="x in names">
     {{x}}
 </li>
 ```
-### ng-show
+#### ng-show
     当表达式是true的时候会显示标签
 ```html
 <span ng-show="author="xiaxiaowen""></span>
 ```
-### ng-controller
+#### ng-controller
     定义控制Angularjs应用
-### {{表达式}}
+#### {{表达式}}
     表达式写到双大括号中
-### 模块(module)
+#### 模块(module)
     定义Angularjs应用
 ```js
     var app = angular.module('myApp', []);
 ```
-### 控制器(Controller)
+#### 控制器(Controller)
     控制Angularjs应用
 ```js
 app.controller('myCtrl', function($scope){$scope.myAppName = 'Angular Music'});
 ```
-### 创建制自定义的指令
+#### 创建制自定义的指令
     通过.directive函数添加自定义指令名
     (必须使用驼峰法命名指令名称，比如myTag，但是使用的时候需要用-分割，my-tag)
 ```html
@@ -47,7 +47,7 @@ app.controller('myCtrl', function($scope){$scope.myAppName = 'Angular Music'});
 </script>
 </body>
 ```
-### 
+#### 
 # AngularMusic
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.2.
