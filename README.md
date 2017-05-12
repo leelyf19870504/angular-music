@@ -22,6 +22,12 @@
 ```html
 <button ng-click="sayHello()">点击</button>
 ```
+#### ng-option
+    使用 ng-option 指令来创建一个下拉列表，列表项通过对象和数组循环输出
+```html
+<select ng-init="selectedName = names[0]" ng-model="selectedName" ng-options="x for x in names">
+</select>
+```
 #### ng-controller
     定义控制Angularjs应用
 #### {{表达式}}
@@ -55,6 +61,8 @@ app.controller('myCtrl', function($scope){$scope.myAppName = 'Angular Music'});
 #### $rootScope(根scope) 
     所有的应用都有一个 $rootScope，它可以作用于ng-app 指令包含的所有 HTML 元素中。
     用 rootscope 定义的值，可以在各个 controller 中使用
+### Angularjs过滤器
+过滤器可以使用一个管道字符（|）添加到表达式和指令中。
 <table>
   <tr>
     <th>过滤器</th>
@@ -81,8 +89,76 @@ app.controller('myCtrl', function($scope){$scope.myAppName = 'Angular Music'});
     <td>格式化字符串为大写。</td>
   </tr>
 </table>
-#### Angularjs过滤器
-过滤器可以使用一个管道字符（|）添加到表达式和指令中。
+### AngularJS 服务（Service）
+    AngularJS 内建了30 多个服务。
+    $location 服务，它可以返回当前页面的URL地址。
+```js
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $location) {
+    $scope.myUrl = $location.absUrl();
+});
+```
+    AngularJS 会一直监控应用，处理事件变化， AngularJS 使用 $location 服务比使用 window.location 对象更好。
+<table>
+  <tr>
+    <th>服务</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td>$location</td>
+    <td>类似 window.location 对象，可以获取当前的URL地址</td>
+  </tr>
+  <tr>
+    <td>$http</td>
+    <td>http服务，最常用的服务</td>
+  </tr>
+  <tr>
+    <td>$timeout</td>
+    <td>类似 window.setTimeout函数</td>
+  </tr>
+  <tr>
+    <td>$interval</td>
+    <td>类似 window.setInterval函数</td>
+  </tr>
+</table>
+  可以创建自定义服务
+```js
+/* 创建service */
+app.service('myService', function() {
+    this.myFunc = function (x) {
+        return x.toString(16);
+    }
+});
+/* 然后通过函数参数添加到控制器中，就可以使用了 */
+app.controller('myCtrl', function($scope, myService) {
+    $scope.hex = myService.myFunc(255);
+});
+```
+### AngularJS http服务
+* 注：v1.5 中$http 的 success 和 error 方法已废弃。使用 then 方法替代。 *
+```js
+/* 简单的 GET 请求，可以改为 POST */
+$http({
+  method: 'GET',
+  url: '/someUrl'
+}).then(function successCallback(response) {
+    // 请求成功执行代码
+  }, function errorCallback(response) {
+    // 请求失败执行代码
+});
+/* 简写方法 */
+$http.get('/someUrl', config).then(successCallback, errorCallback);
+$http.post('/someUrl', data, config).then(successCallback, errorCallback);
+```
+简写方法列表：
+* $http.get
+* $http.head
+* $http.post
+* $http.put
+* $http.delete
+* $http.jsonp
+* $http.patch
+### AngularJS选择框(select)
 
 # AngularMusic
 
