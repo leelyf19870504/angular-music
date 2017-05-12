@@ -1,18 +1,18 @@
 # angularJS学习
-#### ng-app
+### ng-app
     指令定义一个AngularJS应用程序
-#### ng-model
+### ng-model
     指令把元素（比如输入域的值）绑定到应用程序
-#### ng-bind
+### ng-bind
     指令把应用程序数据绑定到HTML视图
-#### ng-repeat
+### ng-repeat
     重复一个html元素，类似于for循环,用在数组上
 ```html
 <li ng-repeat="x in names">
     {{x}}
 </li>
 ```
-#### ng-show
+### ng-show
     当表达式是true的时候会显示标签
 ```html
 <span ng-show="author="xiaxiaowen""></span>
@@ -22,27 +22,27 @@
 ```html
 <button ng-click="sayHello()">点击</button>
 ```
-#### ng-option
+### ng-option
     使用 ng-option 指令来创建一个下拉列表，列表项通过对象和数组循环输出
 ```html
 <select ng-init="selectedName = names[0]" ng-model="selectedName" ng-options="x for x in names">
 </select>
 ```
-#### ng-controller
+### ng-controller
     定义控制Angularjs应用
-#### {{表达式}}
+### {{表达式}}
     表达式写到双大括号中
-#### 模块(module)
+### 模块(module)
     定义Angularjs应用
 ```js
-    var app = angular.module('myApp', []);
+var app = angular.module('myApp', []);
 ```
-#### 控制器(Controller)
+### 控制器(Controller)
     控制Angularjs应用
 ```js
 app.controller('myCtrl', function($scope){$scope.myAppName = 'Angular Music'});
 ```
-#### 创建制自定义的指令
+### 创建制自定义的指令
     通过.directive函数添加自定义指令名
     (必须使用驼峰法命名指令名称，比如myTag，但是使用的时候需要用-分割，my-tag)
 ```html
@@ -58,7 +58,7 @@ app.controller('myCtrl', function($scope){$scope.myAppName = 'Angular Music'});
 </script>
 </body>
 ```
-#### $rootScope(根scope) 
+### $rootScope(根scope) 
     所有的应用都有一个 $rootScope，它可以作用于ng-app 指令包含的所有 HTML 元素中。
     用 rootscope 定义的值，可以在各个 controller 中使用
 ### Angularjs过滤器
@@ -89,7 +89,7 @@ app.controller('myCtrl', function($scope){$scope.myAppName = 'Angular Music'});
     <td>格式化字符串为大写。</td>
   </tr>
 </table>
-### AngularJS 服务（Service）
+### AngularJS 服务(Service)
     AngularJS 内建了30 多个服务。
     $location 服务，它可以返回当前页面的URL地址。
 ```js
