@@ -63,6 +63,8 @@ app.controller('myCtrl', function($scope){$scope.myAppName = 'Angular Music'});
     用 rootscope 定义的值，可以在各个 controller 中使用
 ### Angularjs过滤器
 过滤器可以使用一个管道字符（|）添加到表达式和指令中。
+
+
 <table>
   <tr>
     <th>过滤器</th>
@@ -89,6 +91,8 @@ app.controller('myCtrl', function($scope){$scope.myAppName = 'Angular Music'});
     <td>格式化字符串为大写。</td>
   </tr>
 </table>
+
+
 ### AngularJS 服务(Service)
     AngularJS 内建了30 多个服务。
     $location 服务，它可以返回当前页面的URL地址。
@@ -99,6 +103,8 @@ app.controller('customersCtrl', function($scope, $location) {
 });
 ```
     AngularJS 会一直监控应用，处理事件变化， AngularJS 使用 $location 服务比使用 window.location 对象更好。
+
+
 <table>
   <tr>
     <th>服务</th>
@@ -121,6 +127,8 @@ app.controller('customersCtrl', function($scope, $location) {
     <td>类似 window.setInterval函数</td>
   </tr>
 </table>
+
+
   可以创建自定义服务
 ```js
 /* 创建service */
