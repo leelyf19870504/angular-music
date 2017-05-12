@@ -55,7 +55,32 @@ app.controller('myCtrl', function($scope){$scope.myAppName = 'Angular Music'});
 #### $rootScope(根scope) 
     所有的应用都有一个 $rootScope，它可以作用于ng-app 指令包含的所有 HTML 元素中。
     用 rootscope 定义的值，可以在各个 controller 中使用
-
+<table>
+  <tr>
+    <th>过滤器</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td>currency</td>
+    <td>格式化数字为货币格式。</td>
+  </tr>
+  <tr>
+    <td>filter</td>
+    <td>从数组项中选择一个子集。</td>
+  </tr>
+  <tr>
+    <td>lowercase</td>
+    <td>格式化字符串为小写。</td>
+  </tr>
+  <tr>
+    <td>orderBy</td>
+    <td>根据某个表达式排列数组。</td>
+  </tr>
+  <tr>
+    <td>uppercase</td>
+    <td>格式化字符串为大写。</td>
+  </tr>
+</table>
 #### Angularjs过滤器
 过滤器可以使用一个管道字符（|）添加到表达式和指令中。
 
