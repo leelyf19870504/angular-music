@@ -28,6 +28,10 @@
 <select ng-init="selectedName = names[0]" ng-model="selectedName" ng-options="x for x in names">
 </select>
 ```
+### ng-disable
+    该指令可以直接绑定html的disable属性
+### ng-hide
+    该指令可以隐藏/显示标签
 ### ng-controller
     定义控制Angularjs应用
 ### {{表达式}}
@@ -63,6 +67,22 @@ app.controller('myCtrl', function($scope){$scope.myAppName = 'Angular Music'});
     用 rootscope 定义的值，可以在各个 controller 中使用
 ### Angularjs过滤器
 过滤器可以使用一个管道字符（|）添加到表达式和指令中。
+
+### Angularjs表格
+
+    通过ng-repeat来进行循环标签，
+    $index可以获取循环中的序号
+    $even 奇数序号的时候为true
+    $odd  偶数序号的时候为true
+```html
+<table>
+    <tr ng-repeat="x in names">
+        <td>{{ $index + 1 }}</td>
+        <td>{{ x.Name }}</td>
+        <td>{{ x.Country }}</td>
+    </tr>
+</table>
+```
 
 
 <table>
@@ -168,6 +188,251 @@ $http.post('/someUrl', data, config).then(successCallback, errorCallback);
 * $http.patch
 ### AngularJS选择框(select)
 
+### Angularjs指令列表
+<table>
+<tr>
+<th>指令</th>
+<th>描述</th>
+</tr>
+<tr>
+   <td>ng-app</td>
+   <td>定义应用程序的根元素。</td>
+</tr>
+<tr>
+   <td>ng-bind</td>
+   <td>绑定 HTML 元素到应用程序数据</td>
+</tr>
+<tr>
+   <td>ng-bind-html</td>
+   <td>绑定 HTML 元素的 innerHTML 到应用程序数据，并移除 HTML 字符串中危险字符</td>
+</tr>
+<tr>
+   <td>ng-bind-template</td>
+   <td>规定要使用模板替换的文本内容</td>
+</tr>
+<tr>
+   <td>ng-blur</td>
+   <td>规定 blur 事件的行为</td>
+</tr>
+<tr>
+   <td>ng-change</td>
+   <td>规定在内容改变时要执行的表达式</td>
+</tr>
+<tr>
+   <td>ng-checked</td>
+   <td>规定元素是否被选中</td>
+</tr>
+<tr>
+   <td>ng-class</td>
+   <td>指定 HTML 元素使用的 CSS 类</td>
+</tr>dd
+   <td>ng-class-even</td>
+   <td>类似 ng-class，但只在偶数行起作用</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-class-odd.html">ng-class-odd</a></td>
+   <td>类似 ng-class，但只在奇数行起作用</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-click.html">ng-click</a></td>
+   <td>定义元素被点击时的行为</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-cloak.html">ng-cloak</a></td>
+   <td>在应用正要加载时防止其闪烁</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-controller.html">ng-controller</a></td>
+   <td>定义应用的控制器对象</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-copy.html">ng-copy</a></td>
+   <td>规定拷贝事件的行为</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-csp.html">ng-csp</a></td>
+   <td>修改内容的安全策略</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-cut.html">ng-cut</a></td>
+   <td>规定剪切事件的行为</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-dblclick.html">ng-dblclick</a></td>
+   <td>规定双击事件的行为</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-disabled.html">ng-disabled</a></td>
+   <td>规定一个元素是否被禁用</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-focus.html">ng-focus</a></td>
+   <td>规定聚焦事件的行为</td>
+</tr>
+<tr>
+   <td>ng-form</td>
+   <td>指定 HTML 表单继承控制器表单</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-hide.html">ng-hide</a></td>
+   <td>隐藏或显示 HTML 元素</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-href.html">ng-href</a></td>
+   <td>为 the &lt;a&gt; 元素指定链接</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-if.html">ng-if</a></td>
+   <td>如果条件为 false 移除 HTML 元素</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-include.html">ng-include</a></td>
+   <td>在应用中包含 HTML 文件</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-init.html">ng-init</a></td>
+   <td>定义应用的初始化值</td>
+</tr>
+<tr>
+   <td>ng-jq</td>
+   <td>定义应用必须使用到的库，如：jQuery</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-keydown.html">ng-keydown</a></td>
+   <td>规定按下按键事件的行为</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-keypress.html">ng-keypress</a></td>
+   <td>规定按下按键事件的行为</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-keyup.html">ng-keyup</a></td>
+   <td>规定松开按键事件的行为</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-list.html">ng-list</a></td>
+   <td>将文本转换为列表 (数组)</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-model.html">ng-model</a></td>
+   <td>绑定 HTML 控制器的值到应用数据</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-model-options.html">ng-model-options</a></td>
+   <td>规定如何更新模型</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-mousedown.html">ng-mousedown</a></td>
+   <td>规定按下鼠标按键时的行为</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-mouseenter.html">ng-mouseenter</a></td>
+   <td>规定鼠标指针穿过元素时的行为</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-mouseleave.html">ng-mouseleave</a></td>
+   <td>规定鼠标指针离开元素时的行为</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-mousemove.html">ng-mousemove</a></td>
+   <td>规定鼠标指针在指定的元素中移动时的行为</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-mouseover.html">ng-mouseover</a></td>
+   <td>规定鼠标指针位于元素上方时的行为</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-mouseup.html">ng-mouseup</a></td>
+   <td>规定当在元素上松开鼠标按钮时的行为</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-non-bindable.html">ng-non-bindable</a></td>
+   <td>规定元素或子元素不能绑定数据</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-open.html">ng-open</a></td>
+   <td>指定元素的 open 属性</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-options.html">ng-options</a></td>
+   <td>在 &lt;select&gt; 列表中指定 &lt;options&gt;</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-paste.html">ng-paste</a></td>
+   <td>规定粘贴事件的行为</td>
+</tr>
+<tr>
+   <td>ng-pluralize</td>
+   <td>根据本地化规则显示信息</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-readonly.html">ng-readonly</a></td>
+   <td>指定元素的 readonly 属性</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-repeat.html">ng-repeat</a></td>
+   <td>定义集合中每项数据的模板</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-selected.html">ng-selected</a></td>
+   <td>指定元素的 selected 属性</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-show.html">ng-show</a></td>
+   <td>显示或隐藏 HTML 元素</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-src.html">ng-src</a></td>
+   <td>指定 &lt;img&gt; 元素的 src 属性</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-srcset.html">ng-srcset</a></td>
+   <td>指定 &lt;img&gt; 元素的 srcset 属性</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-style.html">ng-style</a></td>
+   <td>指定元素的 style 属性</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-submit.html">ng-submit</a></td>
+   <td>规定 onsubmit 事件发生时执行的表达式</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-switch.html">ng-switch</a></td>
+   <td>规定显示或隐藏子元素的条件</td>
+</tr>
+<tr>
+   <td>ng-transclude</td>
+   <td>规定填充的目标位置</td>
+</tr>
+<tr>
+   <td><a href="ng-ng-value.html">ng-value</a></td>
+   <td>规定 input 元素的值</td>
+</tr>
+</tbody></table>
+
+
+<table>
+  <tr>
+    <th>服务</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td>$location</td>
+    <td>类似 window.location 对象，可以获取当前的URL地址</td>
+  </tr>
+  <tr>
+    <td>$http</td>
+    <td>http服务，最常用的服务</td>
+  </tr>
+  <tr>
+    <td>$timeout</td>
+    <td>类似 window.setTimeout函数</td>
+  </tr>
+  <tr>
+    <td>$interval</td>
+    <td>类似 window.setInterval函数</td>
+    </tr>
 # AngularMusic
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.2.
