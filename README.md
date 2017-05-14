@@ -202,8 +202,46 @@ $http.post('/someUrl', data, config).then(successCallback, errorCallback);
 * $http.jsonp
 * $http.patch
 ### AngularJS选择框(select)
-
+### Angularjs路由
+    需要包含js：angular-router.js
+    然后加入到依赖模块：
+```js
+angular.module('myApp', ['ngRoute']);
+```
+    使用ngView来表示为路由页面
+```html
+<div ng-view></div>
+```
+    配置$routeProvider来定义路由规则
+```js
+module.config(['$routeProvider', function($routeProvider){
+    $routeProvider
+        .when('/',{template:'这是首页页面'})
+        .when('/computers',{template:'这是电脑分类页面'})
+        .when('/printers',{template:'这是打印机页面'})
+        .otherwise({redirectTo:'/'});
+}]);
+```
+    $routeProvider.when 函数的第一个参数是 URL 或者 URL 正则规则，第二个参数为路由配置对象。
+    路由配置对象语法规则如下：
+```
+$routeProvider.when(url, {
+    template: string,
+    templateUrl: string,
+    controller: string, function 或 array,
+    controllerAs: string,
+    redirectTo: string, function,
+    resolve: object<key, function>
+});
+```
+* template          需要插入的HTML内容
+* templateUrl       插入HTML模板文件
+* controller        在但其模板上执行新的controller
+* controllerAs      为controller指定别名
+* redirectTo        重定向的地址
+* resolve           指定当前controller所依赖的其他模块
 ### Angularjs指令列表
+
 <table>
 <tr>
 <th>指令</th>
@@ -551,11 +589,11 @@ $http.post('/someUrl', data, config).then(successCallback, errorCallback);
 </tr>
 <tr>
     <td>angular.fromJson()</td>
-    <td>反序列化 JSON 字符串</td>
+    <td>反序列化 JSON 字符串</td>
 </tr>
 <tr>
     <td>angular.toJson()</td>
-    <td>序列化 JSON 字符串</td>
+    <td>序列化 JSON 字符串</td>
 </tr>
 </table>
 
@@ -580,31 +618,4 @@ $http.post('/someUrl', data, config).then(successCallback, errorCallback);
 </tr>
 </table>
 
-# AngularMusic
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.2.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
