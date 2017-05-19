@@ -1,4 +1,4 @@
-# angularJS学习
+# angularJS 要点
 ### ng-app
     指令定义一个AngularJS应用程序
 ### ng-model
