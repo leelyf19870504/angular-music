@@ -6,8 +6,8 @@
   <meta name="description" content="">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
 
-  <title>Angular Material - Starter App</title>
-  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,700'>
+  <title>网易云音乐</title>
+  <!--<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,700'>-->
   <link rel="stylesheet" href="./jspm_packages/github/angular/bower-material@master/angular-material.css"/>
   <link rel="stylesheet" href="./assets/app.css"/>
 </head>
@@ -20,7 +20,36 @@
                aria-label="Show User List">
       <md-icon md-svg-icon="menu"></md-icon>
     </md-button>
-    <h1>Angular Material - Starter App</h1>
+    
+    <h1>
+      <md-icon md-svg-src="assets/svg/neteasy.svg" style="width:32px;height:32px;"></md-icon>
+      网易云音乐
+    </h1>
+    <md-button class="md-raised md-primary" aria-label="Use Android">
+          <md-icon md-svg-src="assets/svg/back.svg"></md-icon>
+    </md-button>
+    <md-button class="md-raised md-primary" aria-label="Use Android">
+          <md-icon md-svg-src="assets/svg/forward.svg"></md-icon>
+    </md-button>
+    <md-autocomplete
+          ng-disabled="app.isDisabled"
+          md-no-cache="app.noCache"
+          md-selected-item="app.selectedItem"
+          md-search-text-change="app.searchTextChange(app.searchText)"
+          md-search-text="app.searchText"
+          md-selected-item-change="app.selectedItemChange(item)"
+          md-items="item in app.querySearch(app.searchText)"
+          md-item-text="item.display"
+          md-min-length="0"
+          placeholder="搜索音乐，歌手，歌词，用户">
+        <md-item-template>
+          <span md-highlight-text="app.searchText" md-highlight-flags="^i">{{item.display}}</span>
+        </md-item-template>
+        <md-not-found>
+          No states matching "{{app.searchText}}" were found.
+          <a ng-click="app.newState(app.searchText)">Create a new one!</a>
+        </md-not-found>
+      </md-autocomplete>
   </md-toolbar>
 
   <!-- Container #2 -->
@@ -31,9 +60,9 @@
                 md-component-id="left" ng-click="app.toggleList()">
       <!-- Custom UsersList component -->
       <users-list
-          users="app.users"
+          users="app.navRecommands"
           selected="app.selected"
-          on-selected="app.selectUser(user)">
+          on-selected="app.selectUser(recommand)">
       </users-list>
     </md-sidenav>
 

@@ -24,6 +24,10 @@ md-toolbar h1 {
   margin: auto;
 }
 
+md-autocomplete {
+  width: 30%;
+  margin-left: 20px;
+}
 /* Sidenav area */
 
 md-list .md-button {
