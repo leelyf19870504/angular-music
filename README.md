@@ -36,6 +36,14 @@
     定义控制Angularjs应用
 ### ng-include
     指令用来包含HTML内容，而且还可以包含AngularJS代码
+### ng-cloak
+    指令用于在 AngularJS 应用在加载时防止 AngularJS 代码未加载完而出现的问题。
+    AngularJS 应用在加载时，文档可能会由于AngularJS 代码未加载完而出现显示 AngularJS 代码，进而会有闪烁的效果， ng-cloak 指令是为了防止该问题的发生。
+```html
+<div ng-app="">
+<p ng-cloak>{{ 5 + 5 }}</p>
+</div>
+```
 ### {{表达式}}
     表达式写到双大括号中
 ### 模块(module)
