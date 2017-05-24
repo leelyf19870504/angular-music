@@ -91,6 +91,20 @@ var app = angular.module('myApp', ['ngAnimate']);
 ### Angularjs过滤器
 过滤器可以使用一个管道字符（|）添加到表达式和指令中。
 
+### controller as syntax 语法糖
+    angular从1.2版本开始带来了新语法Controller as,之前我们对于angular在view上的绑定都必须使用直接的scope对象，对于controller来说我们也得必须注入$scope这个service。controller as的语法糖可以让controller不再有$scope的注入，在view上多增加个demoController as demo，给controller起了一个别名，在此后的view模板中靠这个别名来访问数据对象。
+```js
+angular.module("app",[])
+.controller("demoController",[function(){
+    this.title = "angualr";
+}])
+```
+```html
+<div ng-app="app" ng-controller="demoController as demo">
+     hello : {{demo.title}} !
+</div
+```
+    <strong>在html中使用demo.title用于双向绑定controller的title</strong>
 ### Angularjs表格
 
     通过ng-repeat来进行循环标签，
