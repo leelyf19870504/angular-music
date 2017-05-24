@@ -1,10 +1,10 @@
 <!-- NOTE: @see ngClick for how to pass data selection to outside expression -->
 <text>推荐</text>
 <md-list>
-  <md-list-item ng-repeat="recommand in $ctrl.navRecommands">
-    <md-button ng-click="$ctrl.showDetails(recommand)" ng-class="{'selected' : recommand === $ctrl.selected }">
-      <md-icon md-svg-icon="{{recommand.icon}}" class="avatar"></md-icon>
-      {{recommand.name}}
-    </md-button>
-  </md-list-item>
+    <md-list-item ng-repeat="recommand in $ctrl.navRecommands">
+        <md-button>
+            <md-icon md-svg-icon="{{recommand.icon}}" class="avatar"></md-icon>
+            {{recommand.name}}
+        </md-button>
+    </md-list-item>
 </md-list>
