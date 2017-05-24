@@ -2,9 +2,12 @@
 // have any specialized logic.
 
 export default {
-  name : 'usersList',
-  config : {
-    bindings         : {  navRecommands: '<', selected : '<', showDetails : '&onSelected' },
-    templateUrl      : 'src/users/components/list/UsersList.html'
-  }
+    name: 'usersList',
+    config: {
+        bindings: { navRecommands: '=' },
+        templateUrl: 'src/users/components/list/UsersList.html',
+        controller: function() {
+            console.log(this)
+        }
+    }
 };

@@ -39,7 +39,8 @@
     指令用来包含HTML内容，而且还可以包含AngularJS代码
 ### ng-cloak
     指令用于在 AngularJS 应用在加载时防止 AngularJS 代码未加载完而出现的问题。
-    AngularJS 应用在加载时，文档可能会由于AngularJS 代码未加载完而出现显示 AngularJS 代码，进而会有闪烁的效果， ng-cloak 指令是为了防止该问题的发生。
+    AngularJS 应用在加载时，文档可能会由于AngularJS 代码未加载完而出现显示 AngularJS 代码，
+    进而会有闪烁的效果， ng-cloak 指令是为了防止该问题的发生。
 ```html
 <div ng-app="">
 <p ng-cloak>{{ 5 + 5 }}</p>
@@ -95,18 +96,9 @@ var app = angular.module('myApp', ['ngAnimate']);
 ### Angularjs表格
 
     通过ng-repeat来进行循环标签，
-    $index可以获取循环中的序号
-    $even 奇数序号的时候为true
-    $odd  偶数序号的时候为true
-```html
-<table>
-    <tr ng-repeat="x in names">
-        <td>{{ $index + 1 }}</td>
-        <td>{{ x.Name }}</td>
-        <td>{{ x.Country }}</td>
-    </tr>
-</table>
-```
+* $index可以获取循环中的序号
+* $even 奇数序号的时候为true
+* $odd  偶数序号的时候为true
 
 
 <table>
@@ -137,9 +129,79 @@ var app = angular.module('myApp', ['ngAnimate']);
 </table>
 
 
+```html
+<table>
+    <tr ng-repeat="x in names">
+        <td>{{ $index + 1 }}</td>
+        <td>{{ x.Name }}</td>
+        <td>{{ x.Country }}</td>
+    </tr>
+</table>
+```
+
 ### AngularJS 服务(Service)
-    AngularJS 内建了30 多个服务。
-    $location 服务，它可以返回当前页面的URL地址。
+    Angular 提供了3种方法来创建并注册我们自己的 service。
+* Factory
+* Service
+* Provider
+
+#### Factory
+    用 Factory 就是创建一个对象，为它添加属性，然后把这个对象返回出来。你把 service 传进 controller 之后，
+    在 controller 里这个对象里的属性就可以通过 factory 使用了。
+```js
+app.controller('myFactoryCtrl', function($scope, myFactory){
+    $scope.artist = myFactory.getArtist();
+})
+app.factory('myFactory', function(){
+    var service = {};
+
+    service.getArtist(){
+        return 'xiaxiaowen';
+    }
+
+    return service;
+});
+```
+#### Service
+    Service 是用"new"关键字实例化的。因此，你应该给"this"添加属性，然后 service 返回"this"。
+    你把 service 传进 controller 之后，在controller里 "this" 上的属性就可以通过 service 来使用了。
+```js
+app.controller('myServiceCtrl', function($scope, myService){
+    $scope.artist = myService.getArtist();
+})
+app.service('myService', function(){
+    this.getArtist(){
+        return 'xiaxiaowen';
+    }
+});
+```
+#### Providers
+    Providers 是唯一一种你可以传进 .config() 函数的 service。当你想要在 service 对象启用之前，
+    先进行模块范围的配置，那就应该用 provider。
+```js
+app.controller('myProviderCtrl', function($scope, myProvider){
+    $scope.artist = myService.getArtist();
+    $scope.data.dataFromConfig = myProvider.dataOnConfig;
+})
+app.provider('myProvider', function(){
+    this.dataFromConfig = '';
+    this.$get = function(){
+        var that = this;
+        return {
+            getArtist: function(){
+                return 'xiaxiaowen';
+            },
+            dataOnConfig: that.dataFromConfig
+        }
+    }
+});
+
+app.config(function(myProviderProvider){
+    myProviderProvider.DataFromConfig = 'this is xiaxiaowen';
+})
+```
+AngularJS 内建了30 多个服务。
+$location 服务，它可以返回当前页面的URL地址。
 ```js
 var app = angular.module('myApp', []);
 app.controller('customersCtrl', function($scope, $location) {
@@ -210,6 +272,11 @@ $http.post('/someUrl', data, config).then(successCallback, errorCallback);
 * $http.delete
 * $http.jsonp
 * $http.patch
+### $q
+    AngularJS提供了一个内置Service $q，它提供了一种承诺/延后（promise/deferred），
+    可以保证我们的调用代码一定能够拿到数据。当然，最后去服务器取数据的方式肯定是异步的。
+    只不过这个服务提供了表面上是同步访问的API，当数据获取成功之后，自动将数据提供给调用的代码。
+
 ### AngularJS选择框(select)
 ### Angularjs路由
     需要包含js：angular-router.js
