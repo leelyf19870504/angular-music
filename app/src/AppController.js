@@ -38,6 +38,19 @@ function AppController(UsersDataService, MusicDataService, $mdSidenav, $log) {
             icon: "assets/svg/recommands_friends.svg"
         }
     ];
+    self.navMine = [{
+            name: "本地音乐",
+            icon: "assets/svg/mine_music.svg"
+        },
+        {
+            name: "下载管理",
+            icon: "assets/svg/mine_download.svg"
+        }
+    ];
+    self.navMusicList = [{
+        name: "我喜欢的音乐",
+        icon: "assets/svg/musiclist_like.svg"
+    }];
     console.log(self.navRecommands);
     // *********************************
     // Internal methods
@@ -62,8 +75,6 @@ function AppController(UsersDataService, MusicDataService, $mdSidenav, $log) {
     self.simulateQuery = false;
     self.isDisabled = false;
 
-    // list of `state` value/display objects
-    self.states = loadAll();
     self.querySearch = querySearch;
     self.selectedItemChange = selectedItemChange;
     self.searchTextChange = searchTextChange;
@@ -100,20 +111,6 @@ function AppController(UsersDataService, MusicDataService, $mdSidenav, $log) {
 
     function selectedItemChange(item) {
         $log.info('Item changed to ' + JSON.stringify(item));
-    }
-
-    /**
-     * Build `states` list of key/value pairs
-     */
-    function loadAll() {
-        var allStates = '陈奕迅, 我爱你, 吻你一时别再躲, 我想和你唱, 欢乐颂2, 朴树, 咖喱咖喱, 爱不会down, 李志, 爱河';
-
-        return allStates.split(/, +/g).map(function(state) {
-            return {
-                value: state.toLowerCase(),
-                display: state
-            };
-        });
     }
 
     /**

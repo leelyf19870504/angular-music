@@ -5,9 +5,6 @@ export default {
     name: 'usersList',
     config: {
         bindings: { navRecommands: '=' },
-        templateUrl: 'src/users/components/list/UsersList.html',
-        controller: function() {
-            console.log(this)
-        }
+        templateUrl: 'src/users/components/list/UsersList.html'
     }
 };

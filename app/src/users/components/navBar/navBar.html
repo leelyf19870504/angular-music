@@ -1,0 +1,30 @@
+<!-- NOTE: @see ngClick for how to pass data selection to outside expression -->
+<h4>推荐</h4>
+<md-list>
+    <md-list-item ng-repeat="recommand in $ctrl.navRecommands">
+        <md-button>
+            <md-icon style="width:36px;height:36px;" md-svg-icon="{{recommand.icon}}" class="avatar"></md-icon>
+            {{recommand.name}}
+        </md-button>
+    </md-list-item>
+</md-list>
+<md-divider></md-divider>
+<h4>我的音乐</h4>
+<md-list>
+    <md-list-item ng-repeat="mine in $ctrl.navMine">
+        <md-button>
+            <md-icon style="width:36px;height:36px;" md-svg-icon="{{mine.icon}}" class="avatar"></md-icon>
+            {{mine.name}}
+        </md-button>
+    </md-list-item>
+</md-list>
+<md-divider></md-divider>
+<h4>创建的歌单</h4>
+<md-list>
+    <md-list-item ng-repeat="musiclist in $ctrl.navMusiclist">
+        <md-button>
+            <md-icon style="width:36px;height:36px;" md-svg-icon="{{musiclist.icon}}" class="avatar"></md-icon>
+            {{musiclist.name}}
+        </md-button>
+    </md-list-item>
+</md-list>
